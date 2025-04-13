@@ -1,0 +1,26 @@
+syntax = "proto3";
+package  com.learn.productproto;
+option java_multiple_files=true;
+
+service ProductService{
+  rpc saveProduct(Product) returns(Product);
+  rpc getProductBySkuId(GetProduct) returns(Product);
+  rpc  getAllProducts(Empty) returns(ProductList);
+}
+message Empty{
+
+}
+message ProductList{
+  repeated Product pr = 1;
+}
+message Product{
+  string id=1;
+  string skuId=2;
+  string price = 3;
+  bool avail = 4;
+  int32 qty = 5;
+}
+
+message GetProduct{
+  string skuId=1;
+}

@@ -1,0 +1,31 @@
+syntax = "proto3";
+package  com.learn;
+option java_multiple_files=true;
+
+service EmployeeService{
+  rpc getAllEmployee(Empty) returns(allEmployee);
+  rpc saveEmployee(Employee) returns(Employee);
+  rpc getEmployeeById(EmployeeById) returns(Employee);
+}
+message Empty{
+
+}
+message allEmployee{
+  repeated Employee employee =1;
+}
+
+message Employee{
+    string id =1;
+    string name =2;
+    Address address=3 ;
+}
+
+message Address {
+  string addressLine1=1;
+  string addressLine2=2;
+  string postalcode = 3;
+}
+
+message EmployeeById{
+  string id =1;
+}

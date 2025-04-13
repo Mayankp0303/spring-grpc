@@ -1,0 +1,24 @@
+syntax = "proto3";
+package  com.learn.orderproto;
+option java_multiple_files=true;
+
+service OrderService{
+  rpc getOrder(OrderRequest) returns(OrderResponse);
+  rpc placeOrder(OrderRequest) returns(OrderResponse);
+
+}
+
+message OrderRequest{
+  string customer_id =1 ;
+  string skuId =2;
+  int32 qty=3;
+  string status =4;
+  string originated =5;
+    string order_id=6;
+}
+
+message OrderResponse{
+  string id =1;
+  string customer_id=2;
+  string skuId=3;
+}
